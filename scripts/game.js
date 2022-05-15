@@ -1,18 +1,18 @@
-import { changeBalance, randElem, setBalanceField } from "./functions.js"
+import { changeBalance, randElem, setBalanceField, shuffle } from "./functions.js"
 
 let field = document.querySelector('.field')
 let betField = document.querySelector('.bet_field')
 let boxCont = document.querySelector('.box_cont')
 let betAmount = document.querySelector('.bet_amount')
-let box = document.querySelector('.box')
 let warning = document.querySelector('.warning')
-let intro = document.querySelector('.speech')
+let intro = document.querySelector('.intro')
+let introText = document.querySelector('.speech span')
 let arrow = document.querySelector('.arrow')
 
 setBalanceField()
 let balance = document.querySelector('.balance')
 
-let levelData = { 'Easy': 4, 'Medium': 3, 'Hard': 2 }
+let levelData = { 'Easy': 5, 'Medium': 4, 'Hard': 3 }
 let animalData = {
     'crow': 1,
     'goose': 1.7,
@@ -41,23 +41,23 @@ if (localStorage.getItem(level + '_box')) {
     updateBet()
 }
 
-intro.innerHTML = 'Hi! Take a short training before starting the game.'
-intro.parentElement.style.left = '5%'
+introText.innerHTML = 'Hi! Take a short training before starting the game.'
+intro.style.left = '5%'
 setTimeout(() => {
-    intro.innerHTML = 'Choose some animals'
+    introText.innerHTML = 'Choose some animals'
     arrow.style.animation = 'arrow1 2s ease'
 }, 1500);
 setTimeout(() => {
-    intro.innerHTML = 'They will be displayed here'
+    introText.innerHTML = 'They will be displayed here'
     arrow.style.animation = 'arrow2 2s ease'
 }, 3000);
 setTimeout(() => {
-    intro.innerHTML = 'Select the bet and play!'
+    introText.innerHTML = 'Select the bet and play!'
     arrow.style.transform = 'rotate(90deg)'
     arrow.style.animation = 'arrow3 2s ease'
 }, 5000);
 setTimeout(() => {
-    intro.parentElement.style.left = '-35%'
+    intro.style.left = '-35%'
     active = true
 }, 7000);
 
@@ -78,7 +78,7 @@ for (let animal in animalData) {
     cell.appendChild(cf)
 
     cell.onclick = () => {
-        if (!active || chosen.includes(cell.dataset.animal) || chosen.length == levelData[level] + 1) { return }
+        if (!active || chosen.includes(cell.dataset.animal) || chosen.length == levelData[level]) { return }
 
         chosen.push(cell.dataset.animal)
         updateBet()
@@ -89,18 +89,33 @@ for (let animal in animalData) {
 }
 
 for (let i = 0; i < levelData[level]; i++) {
-    let box = document.createElement('img')
-    box.src = '../png/box.png'
-    box.classList.add('stable_box')
+
+    let box = document.createElement('div')
+    box.classList.add('box')
 
     i % 2 == 0 ? box.style.left = 0 : box.style.right = 0
-    box.style.bottom = 20 + i * 15 + '%'
+    box.style.bottom = 5 + i * 15 + '%'
     box.style.zIndex = 5 - i
+
+    let innerBox = document.createElement('div')
+    innerBox.classList.add('inner_box')
+
+    box.appendChild(innerBox)
+
+    let img = document.createElement('img')
+    img.src = '../png/box.png'
+    img.classList.add('closed')
+    box.appendChild(img)
+
+    for (let item of ['back', 'front']) {
+        let img = document.createElement('img')
+        img.src = '../png/' + item + '_box.png'
+        img.classList.add(item)
+        box.appendChild(img)
+    }
 
     boxCont.appendChild(box)
 }
-
-
 
 document.querySelector('.clear').onclick = () => {
     if (!active) { return }
@@ -129,28 +144,30 @@ document.querySelector('.play_button').onclick = () => {
     changeBalance(-Number(betAmount.innerHTML))
     active = false
 
-    box.style.animation = 'box 1.5s ease'
+    let outcome = shuffle(Object.keys(animalData)).slice(0, levelData[level])
 
-    setTimeout(() => {
-        box.querySelector('.front').classList.remove('hidden')
-        box.querySelector('.back').classList.remove('hidden')
-        box.querySelector('.closed').classList.add('hidden')
-    }, 1700);
+    let i = 0
+    for (let box of document.querySelectorAll('.box')) {
+        box.style.animation = 'box 1.5s ease'
 
-    let outcome = randElem(Object.keys(animalData))
-    let prize = 0
-    if (chosen.includes(outcome)) {
-        prize = Number(betAmount.innerHTML) * animalData[outcome]
+        setTimeout(() => {
+            box.querySelector('.front').classList.remove('hidden')
+            box.querySelector('.back').classList.remove('hidden')
+            box.querySelector('.closed').classList.add('hidden')
+
+            let animal = document.createElement('img')
+            animal.src = '../png/' + outcome[i] + '.png'
+            animal.classList.add('box_animal')
+            box.querySelector('.inner_box').appendChild(animal)
+            i++
+
+            setTimeout(() => {
+                animal.style.top = 0
+            }, 300);
+        }, 1700);
     }
 
-    let animal = document.createElement('img')
-    animal.src = '../png/' + outcome + '.png'
-    animal.classList.add('box_animal')
-    box.querySelector('.inner_box').appendChild(animal)
-
-    setTimeout(() => {
-        animal.style.top = 0
-    }, 2000);
+    let prize = getPrize(outcome)
 
     setTimeout(() => {
         warning.querySelector('.text').innerHTML = prize ? 'Congrats! You have won ' + prize + ' stars' : 'No way! Try again right now'
@@ -161,18 +178,20 @@ document.querySelector('.play_button').onclick = () => {
 
 document.querySelector('.warning .button').onclick = () => {
     warning.style.top = '-50%'
-    box.style.animation = ''
-    box.querySelector('.box_animal').style.top = '100%'
 
-    setTimeout(() => {
-        box.querySelector('.box_animal').remove()
+    for (let box of document.querySelectorAll('.box')) {
+        box.style.animation = ''
+        box.querySelector('.box_animal').style.top = '100%'
 
-        box.querySelector('.front').classList.add('hidden')
-        box.querySelector('.back').classList.add('hidden')
-        box.querySelector('.closed').classList.remove('hidden')
+        setTimeout(() => {
+            box.querySelector('.box_animal').remove()
 
-        active = true
-    }, 500);
+            box.querySelector('.front').classList.add('hidden')
+            box.querySelector('.back').classList.add('hidden')
+            box.querySelector('.closed').classList.remove('hidden')
+        }, 500);
+    }
+    active = true
 }
 
 function updateBet() {
@@ -186,3 +205,14 @@ function updateBet() {
     }
 }
 
+function getPrize(outcome) {
+    let maxCf = 0
+    for (let animal of outcome) {
+        if (chosen.includes(animal)) {
+            if (maxCf < animalData[animal]) {
+                maxCf = animalData[animal]
+            }
+        }
+    }
+    return Number(betAmount.innerHTML) * maxCf
+}

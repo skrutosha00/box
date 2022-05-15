@@ -80,42 +80,31 @@ body {
 }
 
 @keyframes box {
-  10% {
-    bottom: 20%;
-  }
-
   25% {
     transform: rotate(10deg);
-    bottom: 20%;
   }
 
   35% {
     transform: rotate(-10deg);
-    bottom: 20%;
   }
 
   45% {
     transform: rotate(10deg);
-    bottom: 20%;
   }
 
   65% {
     transform: rotate(-10deg);
-    bottom: 20%;
   }
 
   75% {
     transform: rotate(10deg);
-    bottom: 20%;
   }
 
   85% {
     transform: rotate(0deg);
-    bottom: 20%;
   }
 
   100% {
-    bottom: 10%;
     transform: rotate(0deg);
   }
 }

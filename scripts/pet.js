@@ -31,10 +31,12 @@ document.querySelector('.name').innerHTML = name
 updateBars()
 setInterval(() => {
     updateBars()
+    updateButtons()
     updateState()
 }, 10000);
 
 updateState()
+updateButtons()
 
 document.querySelector('.pet').src = '../png/big_' + animal + '.png'
 if (animal == 'frog') { document.querySelector('.pet').classList.add('frog') }
@@ -51,6 +53,7 @@ for (let button of document.querySelectorAll('.button')) {
             localStorage.setItem('last_' + good + '_box', new Date().getTime())
             updateBars()
             updateState()
+            updateButtons()
         }
     }
 }
@@ -86,4 +89,9 @@ function updateState() {
     } else {
         state.innerHTML = name + ' is happy!'
     }
+}
+
+function updateButtons() {
+    document.querySelector('.button[data-good=drop]').style.backgroundImage = Number(localStorage.getItem('drop_box')) == 2 ? 'url("../png/empty_button.png")' : 'url("../png/yellow_button.png")'
+    document.querySelector('.button[data-good=salad]').style.backgroundImage = Number(localStorage.getItem('salad_box')) == 2 ? 'url("../png/empty_button.png")' : 'url("../png/yellow_button.png")'
 }
