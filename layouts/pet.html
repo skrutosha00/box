@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="initial-scale=1.0, width=device-width, viewport-fit=cover"
+    />
+    <link rel="shortcut icon" href="./png/icon.png" />
+    <link rel="stylesheet" href="../styles/common_style.css" />
+    <link rel="stylesheet" href="../styles/pet.css" />
+    <title>Boom Box</title>
+  </head>
+  <body>
+    <a href="./main.html" class="home block"><div>HOME</div></a>
+    <div class="balance_field block"></div>
+
+    <div class="sidebar">
+      <div class="name block"></div>
+      <div class="salad_cont block">
+        <img src="../png/salad.png" alt="salad" />
+        <div class="salad bar"></div>
+      </div>
+      <div class="drop_cont block">
+        <img src="../png/drop.png" alt="drop" />
+        <div class="drop bar"></div>
+      </div>
+    </div>
+
+    <div class="state"></div>
+
+    <img class="pet" alt="pet" />
+
+    <div class="shop">
+      <div class="good_cont">
+        <div class="good block">
+          <span>Salad: 15</span>
+          <div class="logo block">
+            <img src="../png/salad.png" />
+          </div>
+        </div>
+        <div class="button block" data-good="salad">BUY</div>
+      </div>
+
+      <div class="good_cont">
+        <div class="good block">
+          <span>Water: 15</span>
+          <div class="logo block">
+            <img class="drop" src="../png/drop.png" />
+          </div>
+        </div>
+        <div class="button block" data-good="drop">BUY</div>
+      </div>
+    </div>
+
+    <script src="../scripts/pet.js" type="module"></script>
+  </body>
+</html>

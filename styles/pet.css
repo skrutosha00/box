@@ -1,0 +1,208 @@
+.block {
+  background-size: 100% 100%;
+}
+
+.home {
+  font-size: 3vw;
+}
+
+.balance_field {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.sidebar {
+  width: 20%;
+  height: 50%;
+
+  position: absolute;
+  left: 5%;
+  top: 15%;
+}
+
+.name {
+  background-image: url("../png/yellow_button.png");
+
+  width: 80%;
+  height: 15vh;
+  font-size: 3vw;
+  color: #c51515;
+}
+
+.salad_cont,
+.drop_cont {
+  position: relative;
+  width: 100%;
+  height: 15vh;
+  background-image: url("../png/empty_button.png");
+  justify-content: flex-start;
+}
+
+img[alt="salad"],
+img[alt="drop"] {
+  max-height: 100%;
+  max-width: 25%;
+  margin-left: 7%;
+  position: absolute;
+}
+
+img[alt="salad"] {
+  max-width: 30%;
+}
+
+.bar {
+  height: 70%;
+  width: 90%;
+  margin-left: 5%;
+
+  background: linear-gradient(270deg, #33ff00 -7.42%, #ffd600 101.29%);
+  border-radius: 24.5px;
+
+  transition: width 0.5s ease;
+}
+
+.state {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+
+  width: 30%;
+  height: 15%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 3vw;
+  color: #794b21;
+
+  background: #e4cdab;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 18px;
+}
+
+.pet {
+  margin-top: 5%;
+  height: 70%;
+}
+
+.pet.frog {
+  margin-top: 25%;
+  height: 40%;
+}
+
+.shop {
+  width: 30%;
+  height: 80%;
+
+  position: absolute;
+  right: 5%;
+  top: 15%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.good_cont {
+  height: 40%;
+  width: 100%;
+  max-height: 300px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.good {
+  background-image: url("../png/empty_button.png");
+  position: relative;
+
+  justify-content: flex-start;
+
+  width: 100%;
+  height: 65%;
+}
+
+.good span {
+  margin-left: 10%;
+  font-size: 3vw;
+}
+
+.logo {
+  background-image: url("../png/blue_button.png");
+  position: absolute;
+  right: 0;
+
+  height: 100px;
+  width: 100px;
+}
+
+.logo img {
+  max-height: 50%;
+}
+
+.logo img.drop {
+  max-height: 65%;
+}
+
+.button {
+  background-image: url("../png/yellow_button.png");
+  width: 50%;
+  height: 25%;
+}
+
+@media screen and (max-width: 650px) {
+  .logo {
+    height: 60px;
+    width: 60px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .logo {
+    height: 75px;
+    width: 75px;
+  }
+}
+
+@media screen and (min-height: 370px) {
+  .name {
+    height: 12vh;
+    margin-top: 50px;
+  }
+}
+
+@media screen and (min-height: 590px) {
+  .drop_cont,
+  .salad_cont {
+    height: 12vh;
+  }
+  .logo {
+    height: 130px;
+    width: 130px;
+  }
+}
+
+@media screen and (min-height: 750px) {
+  .good {
+    height: 50%;
+  }
+  .drop_cont,
+  .salad_cont {
+    height: 10vh;
+  }
+  .name {
+    height: 8vh;
+  }
+}
+
+@media screen and (min-height: 1000px) {
+  .button {
+    font-size: 28px;
+    width: 60%;
+  }
+}

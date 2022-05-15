@@ -1,0 +1,126 @@
+body {
+  display: flex;
+  align-items: center;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-left: 10%;
+  width: 50%;
+  height: 100%;
+}
+
+.card {
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+  flex-flow: column nowrap;
+  align-items: center;
+
+  width: 25%;
+  height: 50%;
+}
+
+.animal {
+  width: 135%;
+  max-height: 70%;
+}
+
+.animal img {
+  width: 100%;
+  height: 100%;
+}
+
+.blue {
+  background-image: url("../png/blue_button.png");
+
+  width: 90%;
+  height: 40%;
+
+  position: absolute;
+  left: 5%;
+  top: 30%;
+
+  color: #181662;
+  font-size: 2vw;
+}
+
+/* a {
+  background-image: url("../png/yellow_button.png");
+
+  width: 100%;
+  height: 20%;
+
+  display: flex;
+  justify-content: center;
+} */
+
+.yellow {
+  background-image: url("../png/yellow_button.png");
+
+  width: 100%;
+  height: 20%;
+
+  color: #ae0202;
+  font-size: 3vw;
+}
+
+.hint_cont {
+  width: 25%;
+  margin-left: 5%;
+  max-height: 100%;
+}
+
+.hint {
+  color: #401e00;
+  background: #e4cdab;
+  border-radius: 18px;
+  height: 20%;
+  font-size: 2.6vw;
+  padding: 10%;
+}
+
+.balance_field {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+
+@media screen and (max-height: 480px) {
+  .hint_cont {
+    margin-top: 20px;
+  }
+
+  .hint {
+    padding: 10px;
+  }
+
+  .hint_cont img {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 900px) and (max-height: 420px) {
+  .hint_cont {
+    position: fixed;
+    bottom: -20px;
+    right: 20px;
+  }
+
+  .cards {
+    margin-left: 25px;
+    width: 65%;
+  }
+
+  .card {
+    height: 70%;
+  }
+
+  .card .animal {
+    width: 100%;
+  }
+}

@@ -1,0 +1,38 @@
+.button {
+  width: 35%;
+  height: 25%;
+
+  font-size: 4vw;
+
+  position: absolute;
+  left: 10%;
+  top: 20%;
+
+  background-image: url("../png/wood.png");
+}
+
+.button.second {
+  top: 50%;
+}
+
+.eagle {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+
+  height: 80vh;
+  width: 50%;
+
+  overflow: hidden;
+}
+
+.eagle img {
+  height: 100vh;
+  margin: auto;
+}
+
+.balance_field {
+  position: absolute;
+  top: 1.5vh;
+  right: 1.5vw;
+}

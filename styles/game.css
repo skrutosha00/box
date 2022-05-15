@@ -1,0 +1,519 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  background-size: 100% 200%;
+  background-position: bottom;
+}
+
+.box_cont {
+  position: relative;
+
+  height: 100%;
+  width: 20%;
+}
+
+.box {
+  position: relative;
+  z-index: 6;
+  bottom: 10%;
+  right: 0;
+}
+
+.inner_box {
+  position: absolute;
+  z-index: 8;
+  bottom: 50%;
+  height: 150%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.box .closed {
+  position: relative;
+  z-index: 10;
+
+  width: 100%;
+  height: 100%;
+
+  transition: opacity 0.5s ease;
+}
+
+.box .front {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 9;
+  width: 100%;
+
+  transition: opacity 0.5s ease;
+}
+
+.box .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 7;
+  width: 100%;
+
+  transition: opacity 0.5s ease;
+}
+
+.box .box_animal {
+  position: absolute;
+  left: 0;
+  z-index: 8;
+
+  max-width: 100%;
+  top: 100%;
+
+  transition: top 0.5s ease;
+}
+
+.stable_box,
+.box {
+  position: absolute;
+
+  width: 104px;
+  height: 68px;
+}
+
+@keyframes box {
+  10% {
+    bottom: 20%;
+  }
+
+  25% {
+    transform: rotate(10deg);
+    bottom: 20%;
+  }
+
+  35% {
+    transform: rotate(-10deg);
+    bottom: 20%;
+  }
+
+  45% {
+    transform: rotate(10deg);
+    bottom: 20%;
+  }
+
+  65% {
+    transform: rotate(-10deg);
+    bottom: 20%;
+  }
+
+  75% {
+    transform: rotate(10deg);
+    bottom: 20%;
+  }
+
+  85% {
+    transform: rotate(0deg);
+    bottom: 20%;
+  }
+
+  100% {
+    bottom: 10%;
+    transform: rotate(0deg);
+  }
+}
+
+.outer_field {
+  background-image: url("../png/back_wood.png");
+  background-size: cover;
+
+  width: 340px;
+  height: 340px;
+}
+
+.field {
+  display: flex;
+  flex-flow: row wrap;
+
+  width: 320px;
+  height: 320px;
+}
+
+.cell {
+  width: 80px;
+  height: 80px;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cell img {
+  max-height: 70%;
+  max-width: 70%;
+}
+
+.dark {
+  background: #c51515;
+}
+
+.light {
+  background: #e82934;
+}
+
+.control {
+  width: auto;
+  height: 95%;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
+
+.outer_bet {
+  position: relative;
+
+  width: 225px;
+  height: 225px;
+
+  background-image: url("../png/back_wood.png");
+}
+
+.bet_field {
+  width: 90%;
+  height: 90%;
+
+  background: linear-gradient(
+    90deg,
+    #37170d 1.04%,
+    #492418 15.62%,
+    #7c2408 47.92%,
+    #572217 81.95%,
+    #3e1209 100%
+  );
+
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row wrap;
+}
+
+.bet_field img {
+  width: 25%;
+  height: 25%;
+  margin: 5% 0 5% 6%;
+
+  flex-basis: 25%;
+}
+
+.clear,
+.lock {
+  position: absolute;
+  bottom: -15px;
+
+  width: 40%;
+  height: 20%;
+
+  background-image: url("../png/wood.png");
+}
+
+.clear {
+  left: 5%;
+}
+
+.lock {
+  right: 5%;
+}
+
+.bet_amount_cont {
+  position: relative;
+  background-image: url("../png/yellow_button.png");
+
+  width: 100%;
+  height: 20vh;
+
+  justify-content: flex-start;
+}
+
+.bet_amount {
+  width: 34%;
+  font-size: 28px;
+  color: #ae0202;
+  overflow-x: scroll;
+}
+
+.left,
+.right {
+  max-height: 80%;
+  max-width: 15%;
+}
+
+.left {
+  transform: rotate(180deg);
+  margin-left: 10%;
+}
+
+.play_button {
+  position: absolute;
+  right: -5%;
+
+  width: 30%;
+  height: 100%;
+
+  background-image: url("../png/blue_button.png");
+}
+
+.play_button img {
+  max-width: 50%;
+  max-height: 50%;
+  margin-left: 6%;
+}
+
+.balance_field {
+  width: 100%;
+  background-size: cover;
+  justify-content: space-evenly;
+
+  font-size: 2vw;
+}
+
+.balance_field img {
+  margin-left: 15%;
+}
+
+.balance {
+  font-size: 20px;
+}
+
+.warning {
+  position: absolute;
+  background-image: url("../png/wood.png");
+  background-size: 100% 100%;
+
+  top: -50%;
+  width: 40%;
+  height: 20%;
+  padding: 20px;
+  font-size: 2vw;
+
+  justify-content: space-around;
+
+  transition: top 0.4s ease;
+}
+
+.text {
+  max-width: 50%;
+}
+
+.button {
+  height: 80%;
+  max-height: 80px;
+  width: 30%;
+  border-radius: 10px;
+  background-color: #e82934;
+}
+
+.intro {
+  position: absolute;
+  top: 15%;
+  left: -30%;
+  z-index: 10;
+  width: 25%;
+  height: 70%;
+
+  transition: left 0.3s ease 0.3s;
+}
+
+.intro .speech {
+  width: 90%;
+  height: 30%;
+  padding: 15px;
+  background: #e4cdab;
+  color: #794b21;
+  font-size: 2.5vw;
+  border-radius: 18px;
+}
+
+.intro img {
+  max-width: 100%;
+  max-height: 70%;
+}
+
+.arrow {
+  position: absolute;
+  left: -12%;
+  right: auto;
+  z-index: 12;
+  width: 10%;
+}
+
+@keyframes arrow1 {
+  0% {
+    left: 25%;
+    top: 50%;
+  }
+
+  25% {
+    left: 30%;
+    top: 50%;
+  }
+
+  50% {
+    left: 25%;
+    top: 50%;
+  }
+
+  75% {
+    left: 30%;
+    top: 50%;
+  }
+
+  100% {
+    left: 25%;
+    top: 50%;
+  }
+}
+
+@keyframes arrow2 {
+  0% {
+    left: 60%;
+    top: 15%;
+  }
+
+  25% {
+    left: 65%;
+    top: 15%;
+  }
+
+  50% {
+    left: 60%;
+    top: 15%;
+  }
+
+  75% {
+    left: 65%;
+    top: 15%;
+  }
+
+  100% {
+    left: 60%;
+    top: 15%;
+  }
+}
+
+@keyframes arrow3 {
+  0% {
+    left: 80%;
+    top: 45%;
+  }
+
+  25% {
+    left: 80%;
+    top: 50%;
+  }
+
+  50% {
+    left: 80%;
+    top: 45%;
+  }
+
+  75% {
+    left: 80%;
+    top: 50%;
+  }
+
+  100% {
+    left: 80%;
+    top: 45%;
+  }
+}
+
+@media screen and (max-width: 795px) {
+  .cell {
+    width: 50px;
+    height: 50px;
+  }
+
+  .field {
+    width: 200px;
+    height: 200px;
+  }
+
+  .outer_field {
+    width: 210px;
+    height: 210px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .box,
+  .stable_box {
+    width: 60px;
+    height: 40px;
+  }
+
+  .outer_bet {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media screen and (min-height: 600px) {
+  .box,
+  .stable_box {
+    width: 155px;
+    height: 101px;
+  }
+
+  .outer_bet {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media screen and (min-height: 760px) {
+  .cell {
+    width: 100px;
+    height: 100px;
+  }
+
+  .field {
+    width: 400px;
+    height: 400px;
+  }
+
+  .outer_field {
+    width: 420px;
+    height: 420px;
+  }
+
+  .bet_amount_cont {
+    width: 260px;
+  }
+}
+
+@media screen and (min-height: 1000px) {
+  .cell {
+    width: 120px;
+    height: 120px;
+  }
+
+  .field {
+    width: 480px;
+    height: 480px;
+  }
+
+  .outer_field {
+    width: 500px;
+    height: 500px;
+  }
+  .bet_amount_cont {
+    width: 100%;
+  }
+
+  .control {
+    width: 30%;
+  }
+
+  .outer_bet {
+    width: 400px;
+    height: 400px;
+  }
+}

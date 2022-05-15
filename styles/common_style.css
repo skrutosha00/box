@@ -1,0 +1,71 @@
+@font-face {
+  font-family: "Lilita";
+  src: url("../lilitaonerus.ttf");
+}
+
+body {
+  background-image: url("../png/back.png");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+
+  font-family: "Lilita";
+  font-style: normal;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.balance_field {
+  background-image: url("../png/balance.png");
+  height: 10%;
+  width: 20%;
+}
+
+.balance {
+  font-size: 3vw;
+}
+
+.balance_field img {
+  height: 60%;
+}
+
+.block {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+
+  background-image: url("../png/red_wood.png");
+  background-size: cover;
+
+  z-index: 9;
+
+  width: 12%;
+  height: 8%;
+}

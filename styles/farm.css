@@ -1,0 +1,74 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.balance_field {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.block {
+  background-size: 100% 100%;
+}
+
+.home {
+  top: 20px;
+  right: 20px;
+  font-size: 3vw;
+}
+
+.greeting {
+  width: 40%;
+  height: 20%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #e4cdab;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 18px;
+
+  font-size: 4vw;
+  color: #794b21;
+
+  margin: 4% auto auto;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+
+  width: 80%;
+  height: 60%;
+  margin: auto;
+}
+
+.card {
+  width: 28%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card img {
+  max-width: 110%;
+  max-height: 75%;
+}
+
+.card img.frog {
+  max-height: 60%;
+  margin-top: 20%;
+}
+
+.card a.block {
+  background-image: url("../png/yellow_button.png");
+  width: 100%;
+  height: 20%;
+  color: #c51515;
+  font-size: 3vw;
+}

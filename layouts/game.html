@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="initial-scale=1.0, width=device-width, viewport-fit=cover"
+    />
+    <link rel="shortcut icon" href="./png/icon.png" />
+    <link rel="stylesheet" href="../styles/common_style.css" />
+    <link rel="stylesheet" href="../styles/game.css" />
+    <title>Boom Box</title>
+  </head>
+  <body>
+    <div class="intro">
+      <div class="speech"></div>
+      <img src="../png/big_parrot.png" alt="parrot" />
+    </div>
+    <img src="../png/arrow.png" alt="arrow" class="arrow">
+
+    <a href="./main.html" class="home block"><div>HOME</div></a>
+
+    <div class="box_cont">
+      <div class="box">
+        <div class="inner_box"></div>
+        <img src="../png/box.png" class="closed" alt="box" />
+        <img src="../png/back_box.png" class="back" alt="back" />
+        <img src="../png/front_box.png" class="front" alt="front" />
+      </div>
+    </div>
+
+    <div class="block outer_field">
+      <div class="field"></div>
+    </div>
+
+    <div class="control">
+      <div class="outer_bet block">
+        <div class="bet_field"></div>
+        <div class="block clear">CLEAR</div>
+        <div class="block lock">LOCK</div>
+      </div>
+
+      <div class="bet_amount_cont block">
+        <img src="../png/arrow.png" alt="arrow" class="left" />
+        <div class="bet_amount">0</div>
+        <img src="../png/arrow.png" alt="arrow" class="right" />
+        <div class="play_button block">
+          <img src="../png/play_arrow.png" alt="play" />
+        </div>
+      </div>
+
+      <div class="balance_field block">
+        <div>balance:</div>
+      </div>
+    </div>
+
+    <div class="warning block">
+      <div class="text"></div>
+      <div class="button block">PLAY AGAIN</div>
+    </div>
+
+    <script src="../scripts/game.js" type="module"></script>
+  </body>
+</html>
