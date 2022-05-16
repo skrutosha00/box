@@ -41,9 +41,10 @@ if (localStorage.getItem(level + '_box')) {
     updateBet()
 }
 
-introText.innerHTML = 'Hi! Take a short training before starting the game.'
+introText.innerHTML = 'Hi! Take a short training.'
 intro.style.left = '5%'
 setTimeout(() => {
+    introText.innerHTML = ''
     introText.innerHTML = 'Choose some animals'
     arrow.style.animation = 'arrow1 2s ease'
 }, 1500);
